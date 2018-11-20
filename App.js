@@ -1,32 +1,40 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import {Button} from 'react-native';
+import { createDrawerNavigator, StackNavigator } from 'react-navigation';
 
 import HomeScreen from './src/components/homeScreen/homeScreen';
 import KratomInfo from './src/components/learnKratom/kratomInfo';
 
-const RootStack = createStackNavigator({
+const RootStack = createDrawerNavigator({
   Home: HomeScreen,
-  kratomInfo: KratomInfo
+  kratomInfo: KratomInfo,
 }, 
 {
     initialRouteName: 'Home',
+    navigationOptions: {
+      headerStyle : {
+        backgroundColor: '#f4511e',
+      },
+      headerRight: (
+        <Button 
+        onPress={() => this.props.navigation.openDrawer}
+        title="Info"
+        />
+      ),
+      headerTintColor: '#fff',
+      headerTitleStyle : {
+        color: 'white',
+        },
+      }
 });
+
+const AppStack = StackNavigator({ RootStack : { screen: RootStack} });
 
 export default class App extends Component {
   render() {
     return (
-      <RootStack />
+      <AppStack />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 100,
-  },
-});

@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
-
-import KratomInfo from './src/components/learnKratom/kratomInfo';
 
 export default class homeScreen extends Component {
     render() {
       return (
         <View style={styles.container}>
-        <Text>Welcome to KratomApp!</Text>
+        <Text style={styles.welcome}>Welcome to KratomApp!</Text>
         <Button 
                 onPress={() => this.props.navigation.navigate('kratomInfo')}
                 style={styles.button}
@@ -27,4 +25,7 @@ export default class homeScreen extends Component {
       backgroundColor: 'white',
       padding: 100,
     },
+    welcome: {
+      fontSize: 30
+    }
   });
