@@ -1,26 +1,32 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
-
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Icon } from 'react-native-elements';
+// import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class homeScreen extends Component {
-      static navigationOptions = {
+      static navigationOptions = ({ navigation }) => ({
         title: 'Home',
         headerLeft: (
           <Button 
-          onPress={() => this.props.navigation.openDrawer()}
+          onPress={() => navigation.openDrawer()}
           title="Info"
           />          
         )
-      }
+      })
 
     render() {
       return (
         <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to KratomApp!</Text>
         <Button 
-                onPress={() => this.props.navigation.navigate('kratomInfo')}
-                style={styles.button}
+              icon={
+                <Icon 
+                name='arrow-right'
+                size={15}
+                color='red'
+                />}
+                onPress={() => this.props.navigation.navigate('info')}
+                // style={styles.button}
                 title="Learn about Kratom"
             />
       </View>
@@ -45,14 +51,4 @@ export default class homeScreen extends Component {
 
   });
 
-  // const infoButton = (props) => {
-  //   return(
-  //     <View>
-  //     <Button 
-  //     onPress={() => this.props.navigation.openDrawer()}
-  //     title='info'
-  //     />
-  //   </View>
-  //   )
-  // }
     

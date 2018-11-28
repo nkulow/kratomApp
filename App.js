@@ -4,41 +4,35 @@ import { createAppContainer, createStackNavigator, createDrawerNavigator } from 
 
 import HomeScreen from './src/components/homeScreen/homeScreen';
 import KratomInfo from './src/components/learnKratom/kratomInfo';
+import Strains from './src/components/strains/strains';
+import LoginScreen from './src/loginScreen/loginScreen';
 
 const AppNavigator = createStackNavigator({
+  DONT: LoginScreen,
   Home: HomeScreen,
-  kratomInfo: KratomInfo,
-}, 
-{
-    // initialRouteName: 'Home',
-    // navigationOptions: {
-    //   headerStyle : {
-    //     backgroundColor: '#f4511e',
-    //   },
-    //   headerRight: (
-    //       <Button 
-    //       onPress={() => alert('this is a button')}
-    //       title="Info"
-    //       color="black"
-    //       />  
-    //   ),
-    //  }
-});
+  info: KratomInfo,
+  strains: Strains,
+},
+  
+  
+);
 
 const MyDrawerNavigator = createDrawerNavigator({
-  Home: {
+  DONT: {
     screen: AppNavigator,
   },
-  Info: {
+  Home: {
+    screen: HomeScreen
+  },
+  info: {
     screen: KratomInfo,
   },
+  strains: {
+    screen: Strains
+  }
 });
 
 const MyApp = createAppContainer(MyDrawerNavigator);
-
-// const AppContainer = createAppContainer(AppNavigator);
-
-// const AppStack = StackNavigator({ RootStack : { screen: RootStack} });
 
 export default class App extends Component {
 

@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
 export default class kratomInfo extends Component{
 
-    static navigationOptions = {
-        title: 'Details'
-      }
+    static navigationOptions = ({ navigation }) => ({
+        title: 'About Kratom',
+        headerLeft: (
+          <Button 
+          onPress={() => navigation.openDrawer()}
+          title="Info"
+          />          
+        )
+      })
 
     render (){
         return (
