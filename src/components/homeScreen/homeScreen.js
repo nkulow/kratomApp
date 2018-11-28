@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
 
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class homeScreen extends Component {
+      static navigationOptions = {
+        title: 'Home',
+        headerLeft: (
+          <Button 
+          onPress={() => this.props.navigation.openDrawer()}
+          title="Info"
+          />          
+        )
+      }
+
     render() {
       return (
         <View style={styles.container}>
@@ -27,5 +38,21 @@ export default class homeScreen extends Component {
     },
     welcome: {
       fontSize: 30
+    },
+    button: {
+
     }
+
   });
+
+  // const infoButton = (props) => {
+  //   return(
+  //     <View>
+  //     <Button 
+  //     onPress={() => this.props.navigation.openDrawer()}
+  //     title='info'
+  //     />
+  //   </View>
+  //   )
+  // }
+    

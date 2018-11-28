@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 export default class kratomInfo extends Component{
+
+    static navigationOptions = {
+        title: 'Details'
+      }
+
     render (){
         return (
             <View style={styles.container}>
