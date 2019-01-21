@@ -14,13 +14,21 @@ const background = require("/Users/Kulow/react-native/KratomApp/src/assets/32346
 
 export default class loginScreen extends Component {
 
+
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Sign In',
+        headerLeft: (
+          <Button 
+          onPress={() => navigation.openDrawer()}
+          title="Info"
+          />          
+        )
+      })
+    
     constructor(props){
         super(props);
         this.state = {text: ''};
     }
-    static navigationOptions = () => ({
-        header: null
-    })
 
     render() {
         return(
@@ -76,10 +84,6 @@ export default class loginScreen extends Component {
                 </View>
             </TouchableOpacity>
 
-             </View>
-             
-            <View style={styles.containter} />
-            <View>
             <TouchableOpacity activeOpacity={1.5}>
                 <View style={styles.skipLogin}>
                     <Button
@@ -88,7 +92,10 @@ export default class loginScreen extends Component {
                     />
                 </View>
             </TouchableOpacity>
-            </View>
+
+             </View>
+             
+            <View style={styles.containter} />
            </ImageBackground>
         )
     }
@@ -101,9 +108,7 @@ const styles = StyleSheet.create({
     skipLogin: {
         color: "#FFF",
         backgroundColor: "transparent",
-        textAlign: "center", 
-        paddingBottom: 15
-        
+        textAlign: "center"
     },
     input: {
         flex: 1,

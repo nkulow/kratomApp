@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
+import {SearchBar} from 'react-native-elements';
 
 export default class strains extends Component {
 
@@ -15,9 +16,13 @@ export default class strains extends Component {
 
       render() {
           return(
-            <Text>
-                These are strains of kratom
-            </Text>
+            <SearchBar
+                lightTheme
+                round
+                // onChangeText={}
+                // onClearText={}
+                placeholder='Search Strains...'
+            />
           );
       }
 }

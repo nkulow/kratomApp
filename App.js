@@ -6,19 +6,18 @@ import HomeScreen from './src/components/homeScreen/homeScreen';
 import KratomInfo from './src/components/learnKratom/kratomInfo';
 import Strains from './src/components/strains/strains';
 import LoginScreen from './src/loginScreen/loginScreen';
+import LoginScreen2 from './src/loginScreen/loginScreen2';
 
 const AppNavigator = createStackNavigator({
-  DONT: LoginScreen,
+  Close: LoginScreen,
   Home: HomeScreen,
   info: KratomInfo,
   strains: Strains,
-},
-  
-  
-);
+  login: LoginScreen2
+});
 
 const MyDrawerNavigator = createDrawerNavigator({
-  DONT: {
+  Close: {
     screen: AppNavigator,
   },
   Home: {
@@ -29,7 +28,8 @@ const MyDrawerNavigator = createDrawerNavigator({
   },
   strains: {
     screen: Strains
-  }
+  },
+  login: LoginScreen2
 });
 
 const MyApp = createAppContainer(MyDrawerNavigator);
