@@ -7,13 +7,15 @@ import KratomInfo from './src/components/learnKratom/kratomInfo';
 import Strains from './src/components/strains/strains';
 import LoginScreen from './src/loginScreen/loginScreen';
 import LoginScreen2 from './src/loginScreen/loginScreen2';
+import Bali from './src/components/strains/bali';
 
 const AppNavigator = createStackNavigator({
   Close: LoginScreen,
   Home: HomeScreen,
   info: KratomInfo,
   strains: Strains,
-  login: LoginScreen2
+  login: LoginScreen2,
+  bali: Bali
 });
 
 const MyDrawerNavigator = createDrawerNavigator({

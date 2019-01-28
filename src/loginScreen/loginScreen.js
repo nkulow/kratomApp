@@ -25,11 +25,19 @@ export default class loginScreen extends Component {
     render() {
         return(
             
-            <ImageBackground
-                style={[styles.background, styles.container]}
-                source={background}
-                resizeMode="cover"
-            >   
+            // <ImageBackground
+            //     style={[styles.background, styles.container]}
+            //     source={background}
+            //     resizeMode="cover"
+            // >   
+        <View>
+            <View>
+        <Icon
+            name = 'leaf'
+            style = {styles.logo}
+            size = {40} 
+        />
+        </View>
             <View style={styles.containter} />
 
             <View style={styles.wrapper}>
@@ -38,7 +46,6 @@ export default class loginScreen extends Component {
                     <Icon 
                         name= "user-circle"
                         style={styles.icon}
-                        resizeMode="contain"
                         size={20}
                     />
                 </View>
@@ -89,14 +96,17 @@ export default class loginScreen extends Component {
                 </View>
             </TouchableOpacity>
             </View>
-           </ImageBackground>
+    </View>
+        //    </ImageBackground>
         )
     }
 }
 
 const styles = StyleSheet.create({ 
     containter: {
-         flex: 1,
+        flex: 1,
+        alignItems:'center',
+        paddingTop: 50
     },
     skipLogin: {
         color: "#FFF",
@@ -146,8 +156,16 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     forgotPass: {
-        color: "#FFF",
+        
         backgroundColor: "transparent",
         textAlign: "center"
+    },
+    logo: {
+        width: 50,
+        height: 50,
+        color: '#AFE290',
+        alignItems: 'center',
+        paddingTop: 200,
+        flex: 1
     }
 })
