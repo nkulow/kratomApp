@@ -1,25 +1,31 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button,} from 'react-native';
+import {StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
 import { material } from 'react-native-typography';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import {CardViewWithIcon, CardViewWithImage} from 'react-native-simple-card-view';
 import News from '/Users/Kulow/react-native/KratomApp/src/components/news/news.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 //import {systemWeights } from ''
+console.disableYellowBox = true;
 
 export default class homeScreen extends Component {
       static navigationOptions = ({ navigation }) => ({
         title: 'Home',
         headerTitleStyle: {
           textAlign: 'center',
-          flex: 1
+          
         },
         headerLeft: (   
           <Icon 
             onPress={() => navigation.openDrawer()}
             name = 'bars'
-            style = {styles.icon}
-            size = {24}        
+            style = {styles.barIcon}
+            size = {28}        
           />   
           
         ),
@@ -46,7 +52,7 @@ export default class homeScreen extends Component {
         return (
           <CardViewWithImage
             width={ 200 }
-            source = { {uri: '/Users/Kulow/react-native/KratomApp/src/assets/is-kratom-safe.jpg'}}
+            source = { require('/Users/Kulow/react-native/KratomApp/src/assets/is-kratom-safe.jpg')}
             title={ item.title}
             imageWidth={'100%'}
             imageHeight={120}
@@ -109,13 +115,14 @@ export default class homeScreen extends Component {
           
         </View>
 
-        <Button 
-                onPress={() => this.props.navigation.navigate('info')}
-                // style={styles.button}
-                title="Learn about Kratom"
-            />
-            
-
+        <View style={styles.learnKratom}>
+          <TouchableOpacity 
+          style={[styles.buttonContainer, styles.loginButton]}
+          onPress={() => this.props.navigation.navigate('info')}
+          >
+            <Text style={styles.learnKratomText}>Learn about Kratom</Text>
+          </TouchableOpacity>
+        </View>  
       </View>
     
       );
@@ -150,13 +157,31 @@ export default class homeScreen extends Component {
     news: {
       flex: 2.4
     },
-    icon: {
-      width: 20,
-      height: 20,
-      paddingLeft: 5,
+    barIcon: {
+      width: 60,
+      height: 40,
+      paddingLeft: 8,
       color: '#AFE290',
-      
-  }
-
+      marginTop: 15
+  },
+  buttonContainer: {
+    height:45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom:20,
+    width:250,
+    borderRadius:30,
+    backgroundColor: '#AFE290'
+  },
+  learnKratom:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    //position: 'absolute',
+    bottom: 10
+  },
+  learnKratomText: {
+    color: 'white'
+  },
 
   });

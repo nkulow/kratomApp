@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class kratomInfo extends Component{
 
     static navigationOptions = ({ navigation }) => ({
         title: 'About Kratom',
         headerLeft: (
-          <Button 
-          onPress={() => navigation.openDrawer()}
-          title="Info"
-          />          
+            <Icon 
+            onPress={() => navigation.openDrawer()}
+            name = 'bars'
+            style = {styles.barIcon}
+            size = {24}        
+          />           
         )
       })
 
@@ -28,5 +31,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         height: '100%',
         padding: 50
-    }
+    },
+    barIcon: {
+        width: 20,
+        height: 20,
+        paddingLeft: 5,
+        color: '#AFE290',     
+    },
 })

@@ -13,7 +13,7 @@ export default class news extends Component{
             {
                 title: 'News',
                 content: 'this is content',
-                source: {uri: '/Users/Kulow/react-native/KratomApp/src/assets/Untitled-1a.pngsaadvade.png'}
+                source: require( '/Users/Kulow/react-native/KratomApp/src/assets/Untitled-1a.pngsaadvade.png')
             },
 
           ]
