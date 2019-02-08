@@ -11,6 +11,7 @@
     "react-native": "0.57.4",
     "react-native-elements": "^1.0.0-beta7",
     "react-native-gesture-handler": "^1.0.10",
+    "react-native-progress": "^3.5.0",
     "react-native-simple-card-view": "^0.3.0",
     "react-native-snap-carousel": "^3.7.5",
     "react-native-typography": "^1.4.0",

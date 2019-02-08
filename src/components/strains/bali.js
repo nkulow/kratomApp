@@ -1,11 +1,35 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button, ProgressViewIOS} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Progress from 'react-native-progress';
 
 export default class bali extends Component {
     
-    
-    
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            progress: 0,
+            indeterminate: true,
+        };
+    }
+
+    componentDidMount() {
+        this.animate();
+    }
+
+    animate() {
+        let progress = 0;
+        this.setState({ progress });
+        setTimeout(() => {
+          this.setState({ indeterminate: false });
+          setInterval(() => {
+            progress = 0.6;
+            this.setState({ progress });
+          }, 500);
+        }, 1500);
+      }
+
     static navigationOptions = ({ navigation }) => ({
         title: 'Bali',
         headerLeft: (
@@ -22,10 +46,19 @@ export default class bali extends Component {
         return(
             <View>
                 <Text> This is the bali strain </Text>
-                <ProgressViewIOS style={styles.progressBar} 
-                    trackTintColor='#AFE290'
-                    progress = {0.5}
-                    accessibilityRole = 'text'
+                <Progress.Bar
+                    progress={this.state.progress}
+                    indeterminate={this.state.indeterminate}
+                    width={200}
+                    height={20}
+                    color='#AFE290'
+                />
+                <Progress.Bar
+                    progress={this.state.progress}
+                    indeterminate={this.state.indeterminate}
+                    width={200}
+                    height={20}
+                    color='#AFE290'
                 />
                
             </View>
@@ -43,8 +76,8 @@ const styles = StyleSheet.create({
     },
     progressBar:{
         width: 200,
-        height: 30,
-        transform: [{ scaleX: 1.0 }, { scaleY: 5.0 }],
+        height: 20,
+        color: '#AFE290',
         
     }
 })
